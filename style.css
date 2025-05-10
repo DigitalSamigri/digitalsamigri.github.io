@@ -2,13 +2,14 @@
 
 body {
   font-family: 'Noto Sans Devanagari', sans-serif;
-  background: #f4f7fc; /* Light blue-grey background */
+  background: linear-gradient(135deg, #f4f7fc, #e0e8f9); /* Soft gradient background */
   margin: 0;
   padding: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: background 0.5s ease-in-out; /* Smooth transition for background */
 }
 
 h1 {
@@ -21,6 +22,7 @@ h1 {
   font-size: 24px;
   font-weight: 600;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease;
 }
 
 .container {
@@ -32,6 +34,7 @@ h1 {
   width: 90%;
   max-width: 600px;
   min-width: 300px; /* Ensures it's always usable on mobile */
+  transition: all 0.3s ease-in-out;
 }
 
 .input-group {
@@ -72,6 +75,10 @@ button:hover {
   background-color: #357ABD; /* Darker blue when hovered */
   transform: scale(1.05);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow on hover */
+}
+
+button:active {
+  transform: scale(0.98); /* Slight shrink effect on click */
 }
 
 ul {
