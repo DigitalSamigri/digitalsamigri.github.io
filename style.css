@@ -79,9 +79,9 @@ ul {
 }
 
 li {
-  font-size: 18px;
+  font-size: 16px; /* Reduced font size for list items */
   background-color: #f9f9f9; /* Light grey background for each list item */
-  padding: 12px 20px;
+  padding: 8px 15px;
   border-radius: 10px;
   margin-bottom: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -98,49 +98,19 @@ li:hover {
   background-color: #e74c3c; /* Red button for deleting */
   color: white;
   border: none;
-  border-radius: 50%;
-  padding: 6px 10px;
-  font-size: 14px;
+  border-radius: 50%; /* Rounded button */
+  padding: 4px 8px; /* Smaller button size */
+  font-size: 12px; /* Smaller font size */
   cursor: pointer;
   position: absolute;
   top: 50%;
-  right: 12px;
+  right: 10px; /* Adjusted right spacing */
   transform: translateY(-50%);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .delete-btn:hover {
   background-color: #c0392b; /* Darker red when hovered */
-  transform: scale(1.1);
-}
-
-#whatsapp-input {
-  margin-top: 15px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-#whatsapp-input, .container select {
-  background-color: #fafafa;
-}
-
-.delete-btn {
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  padding: 6px 10px;
-  font-size: 14px;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  right: 12px;
-  transform: translateY(-50%);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.delete-btn:hover {
-  background-color: #c0392b;
   transform: scale(1.1);
 }
 
