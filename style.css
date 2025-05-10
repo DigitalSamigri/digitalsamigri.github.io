@@ -66,14 +66,9 @@ button {
   padding: 12px 18px;
   font-size: 16px;
   border: none;
-  border-radius: 50%; /* Circular shape for the buttons */
+  border-radius: 10px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  width: 50px; /* Size of the button */
-  height: 50px; /* Same height to make it circular */
 }
 
 button:hover {
@@ -86,19 +81,38 @@ button:active {
   transform: scale(0.98); /* Slight shrink effect on click */
 }
 
-button i { /* Center the icon inside the button */
-  font-size: 20px; /* Adjust the icon size */
-  line-height: 0; /* To remove any unnecessary space */
+/* Style for round arrow buttons */
+.arrow-button {
+  background-color: #4a90e2; /* Blue color */
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  border-radius: 50%; /* Make it circular */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
+.arrow-button:hover {
+  background-color: #357ABD; /* Darker blue when hovered */
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow on hover */
+}
+
+.arrow-button:active {
+  transform: scale(0.98); /* Slight shrink effect on click */
+}
+
+/* Page container for proper alignment */
 .page {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.page button {
-  margin-top: 20px; /* Space between the content and the button */
 }
 
 ul {
