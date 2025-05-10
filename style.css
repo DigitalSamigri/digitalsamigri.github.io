@@ -95,24 +95,25 @@ li:hover {
 }
 
 .delete-btn {
-  background-color: #e74c3c; /* Red button for deleting */
+  background-color: #e74c3c; /* Red color */
   color: white;
   border: none;
-  border-radius: 50%; /* Rounded button */
-  padding: 4px 8px; /* Smaller button size */
-  font-size: 12px; /* Smaller font size */
+  border-radius: 50%; /* Circular button */
+  padding: 6px 6px; /* Smaller button size */
+  font-size: 14px; /* Font size for the cross */
   cursor: pointer;
   position: absolute;
   top: 50%;
-  right: 10px; /* Adjusted right spacing */
-  transform: translateY(-50%);
+  right: 10px; /* Positioned on the right */
+  transform: translateY(-50%); /* Centered vertically */
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .delete-btn:hover {
   background-color: #c0392b; /* Darker red when hovered */
-  transform: scale(1.1);
+  transform: scale(1.1); /* Slight grow effect on hover */
 }
+
 
 #whatsapp-input {
   margin-top: 15px;
