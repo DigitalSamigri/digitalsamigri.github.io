@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Noto Sans Devanagari', sans-serif;
-  background: #fff7eb;
+  background: #f4f7fc; /* Light blue-grey background */
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -12,53 +12,64 @@ body {
 }
 
 h1 {
-  background-color: #ffb347;
+  background-color: #4a90e2; /* Soft blue for the header */
   width: 100%;
   padding: 20px 0;
   margin: 0;
   text-align: center;
-  color: #4a2c0a;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .container {
   background: white;
   margin-top: 30px;
   padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   width: 90%;
   max-width: 600px;
+  min-width: 300px; /* Ensures it's always usable on mobile */
 }
 
 .input-group {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
   margin-bottom: 15px;
 }
 
 select, input {
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 10px;
   flex: 1;
+  background-color: #fafafa;
+  transition: border-color 0.3s ease;
+}
+
+select:focus, input:focus {
+  border-color: #4a90e2; /* Blue border on focus */
+  outline: none;
 }
 
 button {
-  background-color: #ff914d;
+  background-color: #4a90e2; /* Bold blue for the action button */
   color: white;
-  padding: 10px 18px;
+  padding: 12px 18px;
   font-size: 16px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background-color: #e27529;
+  background-color: #357ABD; /* Darker blue when hovered */
+  transform: scale(1.05);
 }
 
 ul {
@@ -69,32 +80,37 @@ ul {
 
 li {
   font-size: 18px;
-  background-color: #fff4e6;
-  padding: 10px 15px;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  background-color: #f9f9f9; /* Light grey background for each list item */
+  padding: 12px 20px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: relative;
-  transition: transform 0.2s ease, background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+li:hover {
+  background-color: #f1f1f1; /* Light hover effect */
+  transform: translateY(-3px);
 }
 
 .delete-btn {
-  background-color: #ff5c5c;
+  background-color: #e74c3c; /* Red button for deleting */
   color: white;
   border: none;
   border-radius: 50%;
-  padding: 4px 6px; /* Smaller button */
+  padding: 6px 10px;
   font-size: 14px;
   cursor: pointer;
-  position: absolute; /* Position the button absolutely inside the li */
-  top: 50%; /* Center it vertically */
-  right: 10px; /* Align it 10px from the right edge */
-  transform: translateY(-50%); /* Adjust to vertically center */
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .delete-btn:hover {
-  background-color: #e60000;
+  background-color: #c0392b; /* Darker red when hovered */
   transform: scale(1.1);
 }
 
@@ -104,26 +120,41 @@ li {
   box-sizing: border-box;
 }
 
-.container select {
-  background-color: #f1f1f1;
+#whatsapp-input, .container select {
+  background-color: #fafafa;
 }
 
 .delete-btn {
-  background-color: #ff5c5c;
+  background-color: #e74c3c;
   color: white;
   border: none;
   border-radius: 50%;
-  padding: 4px 6px;
+  padding: 6px 10px;
   font-size: 14px;
   cursor: pointer;
   position: absolute;
   top: 50%;
-  right: 10px;
+  right: 12px;
   transform: translateY(-50%);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .delete-btn:hover {
-  background-color: #e60000;
+  background-color: #c0392b;
   transform: scale(1.1);
+}
+
+#whatsapp-input {
+  margin-top: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fafafa;
+}
+
+#whatsapp-input:focus {
+  border-color: #4a90e2; /* Focus effect on the input */
 }
