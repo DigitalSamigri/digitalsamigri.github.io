@@ -1,81 +1,43 @@
-let list = [];
-
 function addItem() {
   const item = document.getElementById('item-select').value;
   const quantity = document.getElementById('quantity-select').value;
-  
-  // Check if item and quantity are selected
-  if (!item || !quantity) {
-    alert('कृपया सामग्री और मात्रा दोनों चुनें।');
-    return;
-  }
 
-  // Add item to the list
-  list.push({ item, quantity });
-  renderList();
-}
-
-function renderList() {
-  const ul = document.getElementById('item-list');
-  ul.innerHTML = '';  // Clear current list
-  list.forEach((entry, index) => {
+  if (item && quantity) {
     const li = document.createElement('li');
-    li.innerHTML = `${entry.item} x ${entry.quantity} <button class="delete-btn" onclick="deleteItem(${index})">❌</button>`;
-    ul.appendChild(li);
-  });
+    li.innerHTML = `
+      <span>${item} - ${quantity}</span>
+      <button class="delete-btn" onclick="this.parentElement.remove()">×</button>
+    `;
+    document.getElementById('item-list').appendChild(li);
+  }
 }
 
-function deleteItem(index) {
-  // Remove item from list
-  list.splice(index, 1);
-  renderList();
-}
+function nextPage(pageNum) {
+  for (let i = 1; i <= 3; i++) {
+    document.getElementById(`page-${i}`).style.display = 'none';
+  }
+  document.getElementById(`page-${pageNum}`).style.display = 'block';
 
-function nextPage(pageNumber) {
-  // Hide all pages
-  document.querySelectorAll('.page').forEach(page => {
-    page.style.display = 'none';
-  });
-
-  // Show the selected page
-  document.getElementById(`page-${pageNumber}`).style.display = 'block';
-
-  // If on page 2 (Preview page), show the preview list
-  if (pageNumber === 2) {
+  if (pageNum === 2) {
+    const itemList = document.querySelectorAll('#item-list li');
     const previewList = document.getElementById('preview-list');
-    previewList.innerHTML = '';  // Clear previous preview
-    list.forEach((entry, index) => {
-      const li = document.createElement('li');
-      li.innerHTML = `${entry.item} x ${entry.quantity}`;
-      previewList.appendChild(li);
+    previewList.innerHTML = '';
+    itemList.forEach(item => {
+      const clone = item.cloneNode(true);
+      clone.querySelector('.delete-btn')?.remove();
+      previewList.appendChild(clone);
     });
   }
 }
 
 function sendToWhatsApp() {
-  const numberInput = document.getElementById('whatsapp-input').value.trim();
+  const number = document.getElementById('whatsapp-input').value;
+  const pandit = document.getElementById('pandit-select').value;
+  const items = Array.from(document.querySelectorAll('#preview-list li')).map(li => li.innerText).join('\n');
 
-  // Validate phone number
-  if (!numberInput.match(/^[6-9]\d{9}$/)) {
-    alert("कृपया वैध 10 अंकों का मोबाइल नंबर दर्ज करें।");
-    return;
-  }
+  const message = `🙏 *पूजा सामग्री लिस्ट* 🙏\n\n${items}\n\n📿 पंडित जी: ${pandit}`;
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappURL = `https://wa.me/${number}?text=${encodedMessage}`;
 
-  const fullNumber = `91${numberInput}`;  // Add India country code
-  const panditName = document.getElementById('pandit-select').value;
-
-  // Construct the message with proper formatting for WhatsApp
-  let message = `*🙏 पूजा सामग्री सूची*%0A%0A`;
-  list.forEach((entry, index) => {
-    message += `${index + 1}. ${entry.item} x ${entry.quantity}%0A`;
-  });
-
-  // Add the Pandit name
-  message += `%0A*पंडित जी का नाम*: ${panditName}`;
-  
-  // Generate the WhatsApp link
-  const link = `https://wa.me/${fullNumber}?text=${message}`;
-  
-  // Open the WhatsApp chat with the prefilled message
-  window.open(link, '_blank');
+  window.open(whatsappURL, '_blank');
 }
