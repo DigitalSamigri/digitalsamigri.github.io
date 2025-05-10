@@ -9,7 +9,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: background 0.5s ease-in-out;
 }
 
 h1 {
@@ -22,7 +21,6 @@ h1 {
   font-size: 24px;
   font-weight: 600;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease;
 }
 
 .container {
@@ -34,7 +32,6 @@ h1 {
   width: 90%;
   max-width: 600px;
   min-width: 300px;
-  transition: all 0.3s ease-in-out;
 }
 
 .input-group {
@@ -51,7 +48,6 @@ select, input {
   border-radius: 10px;
   flex: 1;
   background-color: #fafafa;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 select:focus, input:focus {
@@ -72,7 +68,7 @@ button {
 }
 
 button:hover {
-  background-color: #357ABD;
+  background-color: #357abd;
   transform: scale(1.05);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -88,16 +84,15 @@ ul {
 }
 
 li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 16px;
   background-color: #f9f9f9;
-  padding: 8px 50px 8px 15px; /* Padding adjusted for space between text and delete button */
+  padding: 10px 15px;
   border-radius: 10px;
   margin-bottom: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -113,10 +108,6 @@ li:hover {
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
@@ -141,30 +132,27 @@ li:hover {
   box-shadow: 0 0 8px rgba(74, 144, 226, 0.6);
 }
 
-.arrow-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
+.next-btn {
   margin-top: 20px;
-}
-
-.arrow-buttons button {
+  float: right;
+  background-color: #4a90e2;
+  color: white;
   padding: 10px 16px;
   font-size: 18px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.next-btn i {
+  margin: 0;
 }
 
 @media (max-width: 480px) {
   h1 {
     font-size: 20px;
   }
-  .input-group select,
-  .input-group input {
+  .input-group select, .input-group input {
     font-size: 14px;
   }
   button {
