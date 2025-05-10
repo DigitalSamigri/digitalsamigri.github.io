@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>पूजा सामग्री लिस्ट</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>🙏 पूजा सामग्री सूची निर्माता</h1>
+
+  <div class="container">
+    <div class="input-group">
+      <select id="item-select">
+        <option value="">-- सामग्री चुनें --</option>
+        <option>कपूर</option>
+        <option>अगरबत्ती</option>
+        <option>रोली</option>
+        <option>मौली (कलावा)</option>
+        <option>चावल (अक्षत)</option>
+        <option>फल</option>
+        <option>नारियल</option>
+        <option>पंचामृत</option>
+        <option>गंगाजल</option>
+        <option>दीपक</option>
+        <option>घी</option>
+        <option>दूध</option>
+        <option>दही</option>
+        <option>शहद</option>
+        <option>फूल</option>
+        <option>पुष्पमाला</option>
+        <option>सिंदूर</option>
+        <option>हल्दी</option>
+        <option>पान के पत्ते</option>
+        <option>लौंग</option>
+        <option>इलायची</option>
+        <option>गुलाल</option>
+        <option>धूप</option>
+        <option>बत्ती</option>
+        <option>बताशा</option>
+        <option>मिठाई</option>
+        <option>चंदन</option>
+        <option>जल पात्र</option>
+        <option>आरती थाली</option>
+        <option>घंटी</option>
+        <option>ध्वजा</option>
+        <option>यज्ञोपवित</option>
+        <option>सुपारी</option>
+        <option>पुष्प</option>
+      </select>
+
+      <select id="quantity-select">
+        <option value="">-- मात्रा चुनें --</option>
+        <option>10gm</option>
+        <option>50gm</option>
+        <option>100gm</option>
+        <option>250gm</option>
+        <option>500gm</option>
+        <option>1kg</option>
+        <option>10ml</option>
+        <option>50ml</option>
+        <option>100ml</option>
+        <option>250ml</option>
+        <option>500ml</option>
+        <option>1L</option>
+        <option>1 पीस</option>
+        <option>5 पीस</option>
+        <option>11 पीस</option>
+        <option>21 पीस</option>
+        <option>51 पीस</option>
+        <option>108 पीस</option>
+        <option>1 पैकेट</option>
+        <option>1 सेट</option>
+        <option>1 डिब्बा</option>
+      </select>
+
+      <button onclick="addItem()">➕ जोड़ें</button>
+    </div>
+
+    <ul id="item-list"></ul>
+
+    <input type="text" id="whatsapp-input" placeholder="WhatsApp नंबर">
+    <button onclick="sendToWhatsApp()">📤 भेजें WhatsApp पर</button>
+  </div>
+
+  <script>
+    let list = [];
+
+    function addItem() {
+      const item = document.getElementById('item-select').value;
+      const quantity = document.getElementById('quantity-select').value;
+      if (!item || !quantity) {
+        alert('कृपया सामग्री और मात्रा दोनों चुनें।');
+        return;
+      }
+      list.push({ item, quantity });
+      renderList();
+    }
+
+    function renderList() {
+      const ul = document.getElementById('item-list');
+      ul.innerHTML = '';
+      list.forEach((entry, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          ${index + 1}. ${entry.item} x ${entry.quantity}
+          <button class="delete-btn" onclick="deleteItem(${index})">❌</button>
+        `;
+        ul.appendChild(li);
+      });
+    }
+
+    function deleteItem(index) {
+      list.splice(index, 1);
+      renderList();
+    }
+
+    function sendToWhatsApp() {
+      const numberInput = document.getElementById('whatsapp-input').value.trim();
+      if (!numberInput.match(/^[6-9]\d{9}$/)) {
+        alert("कृपया वैध 10 अंकों का मोबाइल नंबर दर्ज करें।");
+        return;
+      }
+      const fullNumber = `91${numberInput}`;
+      let message = '*🙏 पूजा सामग्री सूची*%0A%0A';
+      list.forEach((entry, index) => {
+        message += `${index + 1}. ${entry.item} x ${entry.quantity}%0A`;
+      });
+      const link = `https://wa.me/${fullNumber}?text=${message}`;
+      window.open(link, '_blank');
+    }
+  </script>
+</body>
+</html>
