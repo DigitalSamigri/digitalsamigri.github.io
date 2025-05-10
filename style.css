@@ -48,12 +48,13 @@ select, input {
   border-radius: 10px;
   flex: 1;
   background-color: #fafafa;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 select:focus, input:focus {
   border-color: #4a90e2; /* Blue border on focus */
   outline: none;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.6); /* Soft blue shadow */
 }
 
 button {
@@ -64,12 +65,13 @@ button {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
   background-color: #357ABD; /* Darker blue when hovered */
   transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow on hover */
 }
 
 ul {
@@ -113,8 +115,6 @@ li:hover {
   transform: scale(1.1); /* Slight grow effect on hover */
 }
 
-
-
 #whatsapp-input {
   margin-top: 15px;
   width: 100%;
@@ -128,4 +128,21 @@ li:hover {
 
 #whatsapp-input:focus {
   border-color: #4a90e2; /* Focus effect on the input */
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.6); /* Soft blue shadow */
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px; /* Reduce header size for small screens */
+  }
+  .input-group select, .input-group input {
+    font-size: 14px; /* Smaller font size for smaller screens */
+  }
+  button {
+    padding: 10px 16px;
+    font-size: 14px; /* Adjust button size for small screens */
+  }
+  li {
+    font-size: 14px; /* Smaller list item font for mobile */
+  }
 }
