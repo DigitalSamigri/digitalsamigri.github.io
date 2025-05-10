@@ -80,6 +80,15 @@
 
     <ul id="item-list"></ul>
 
+    <label for="pandit-select" style="margin-top: 15px; display: block; font-weight: bold;">
+      सूची भेजने वाले पंडितजी का नाम चुनें:
+    </label>
+    <select id="pandit-select">
+      <option value="">-- पंडितजी का चयन करें --</option>
+      <option>पंडित राजेन्द्र जी</option>
+      <option>पंडित कृष्ण जी</option>
+    </select>
+
     <input type="text" id="whatsapp-input" placeholder="WhatsApp नंबर">
     <button onclick="sendToWhatsApp()">📤 भेजें WhatsApp पर</button>
   </div>
@@ -118,15 +127,26 @@
 
     function sendToWhatsApp() {
       const numberInput = document.getElementById('whatsapp-input').value.trim();
+      const panditName = document.getElementById('pandit-select').value;
+
       if (!numberInput.match(/^[6-9]\d{9}$/)) {
         alert("कृपया वैध 10 अंकों का मोबाइल नंबर दर्ज करें।");
         return;
       }
+      if (!panditName) {
+        alert("कृपया पंडितजी का नाम चुनें।");
+        return;
+      }
+
       const fullNumber = `91${numberInput}`;
       let message = '*🙏 पूजा सामग्री सूची*%0A%0A';
       list.forEach((entry, index) => {
         message += `${index + 1}. ${entry.item} x ${entry.quantity}%0A`;
       });
+
+      // Just include the Pandit Ji's name in bold
+      message += `%0A*${panditName}*`;
+
       const link = `https://wa.me/${fullNumber}?text=${message}`;
       window.open(link, '_blank');
     }
