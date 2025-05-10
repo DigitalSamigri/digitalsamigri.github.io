@@ -6,6 +6,8 @@
   <title>🙏 पूजा सामग्री लिस्ट</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&display=swap" rel="stylesheet">
+  <!-- Add Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
   <h1>🙏 पूजा सामग्री सूची निर्माता</h1>
@@ -17,78 +19,82 @@
       <div class="input-group">
         <select id="item-select">
           <option value="">-- सामग्री चुनें --</option>
-           <option>कपूर</option>
-        <option>अगरबत्ती</option>
-        <option>रोली</option>
-        <option>मौली (कलावा)</option>
-        <option>चावल (अक्षत)</option>
-        <option>फल</option>
-        <option>नारियल</option>
-        <option>पंचामृत</option>
-        <option>गंगाजल</option>
-        <option>दीपक</option>
-        <option>घी</option>
-        <option>दूध</option>
-        <option>दही</option>
-        <option>शहद</option>
-        <option>फूल</option>
-        <option>पुष्पमाला</option>
-        <option>सिंदूर</option>
-        <option>हल्दी</option>
-        <option>पान के पत्ते</option>
-        <option>लौंग</option>
-        <option>इलायची</option>
-        <option>गुलाल</option>
-        <option>धूप</option>
-        <option>बत्ती</option>
-        <option>बताशा</option>
-        <option>मिठाई</option>
-        <option>चंदन</option>
-        <option>जल पात्र</option>
-        <option>आरती थाली</option>
-        <option>घंटी</option>
-        <option>ध्वजा</option>
-        <option>यज्ञोपवित</option>
-        <option>सुपारी</option>
-        <option>पुष्प</option>
-          <!-- Add more items here -->
+          <option>कपूर</option>
+          <option>अगरबत्ती</option>
+          <option>रोली</option>
+          <option>मौली (कलावा)</option>
+          <option>चावल (अक्षत)</option>
+          <option>फल</option>
+          <option>नारियल</option>
+          <option>पंचामृत</option>
+          <option>गंगाजल</option>
+          <option>दीपक</option>
+          <option>घी</option>
+          <option>दूध</option>
+          <option>दही</option>
+          <option>शहद</option>
+          <option>फूल</option>
+          <option>पुष्पमाला</option>
+          <option>सिंदूर</option>
+          <option>हल्दी</option>
+          <option>पान के पत्ते</option>
+          <option>लौंग</option>
+          <option>इलायची</option>
+          <option>गुलाल</option>
+          <option>धूप</option>
+          <option>बत्ती</option>
+          <option>बताशा</option>
+          <option>मिठाई</option>
+          <option>चंदन</option>
+          <option>जल पात्र</option>
+          <option>आरती थाली</option>
+          <option>घंटी</option>
+          <option>ध्वजा</option>
+          <option>यज्ञोपवित</option>
+          <option>सुपारी</option>
+          <option>पुष्प</option>
         </select>
         <select id="quantity-select">
           <option value="">-- मात्रा चुनें --</option>
-        <option>10gm</option>
-        <option>50gm</option>
-        <option>100gm</option>
-        <option>250gm</option>
-        <option>500gm</option>
-        <option>1kg</option>
-        <option>10ml</option>
-        <option>50ml</option>
-        <option>100ml</option>
-        <option>250ml</option>
-        <option>500ml</option>
-        <option>1L</option>
-        <option>1 पीस</option>
-        <option>5 पीस</option>
-        <option>11 पीस</option>
-        <option>21 पीस</option>
-        <option>51 पीस</option>
-        <option>108 पीस</option>
-        <option>1 पैकेट</option>
-        <option>1 सेट</option>
-        <option>1 डिब्बा</option>
-          <!-- Add more quantities here -->
+          <option>10gm</option>
+          <option>50gm</option>
+          <option>100gm</option>
+          <option>250gm</option>
+          <option>500gm</option>
+          <option>1kg</option>
+          <option>10ml</option>
+          <option>50ml</option>
+          <option>100ml</option>
+          <option>250ml</option>
+          <option>500ml</option>
+          <option>1L</option>
+          <option>1 पीस</option>
+          <option>5 पीस</option>
+          <option>11 पीस</option>
+          <option>21 पीस</option>
+          <option>51 पीस</option>
+          <option>108 पीस</option>
+          <option>1 पैकेट</option>
+          <option>1 सेट</option>
+          <option>1 डिब्बा</option>
         </select>
         <button onclick="addItem()">➕ जोड़ें</button>
       </div>
       <ul id="item-list"></ul>
-      <button onclick="nextPage(2)">➡️ अगला</button>
+      <!-- Updated Next Button with Icon -->
+      <button class="next-btn" onclick="nextPage(2)">
+        <i class="fas fa-arrow-right"></i>
+      </button>
     </div>
 
     <!-- Page 2: Preview List -->
     <div id="page-2" class="page" style="display:none;">
       <h2>सामग्री की सूची</h2>
       <ul id="preview-list"></ul>
-      <button onclick="nextPage(3)">➡️ पंडित जी का नाम चुनें</button>
+      <!-- Updated Next Button with Icon -->
+      <button class="next-btn" onclick="nextPage(3)">
+        <i class="fas fa-arrow-right"></i>
+      </button>
     </div>
 
     <!-- Page 3: Pandit Selection and Send -->
