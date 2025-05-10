@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>🙏 पूजा सामग्री लिस्ट</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&display=swap" rel="stylesheet">
-  <!-- Add Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
   <h1>🙏 पूजा सामग्री सूची निर्माता</h1>
 
   <div class="container">
-    <!-- Page 1: Samigri Selection -->
+    <!-- Page 1 -->
     <div id="page-1" class="page">
       <h2>सामग्री चुनें</h2>
       <div class="input-group">
@@ -81,35 +80,32 @@
         <button onclick="addItem()">➕ जोड़ें</button>
       </div>
       <ul id="item-list"></ul>
-      <!-- Updated Next Button with Icon -->
       <button class="next-btn" onclick="nextPage(2)">
         <i class="fas fa-arrow-right"></i>
       </button>
     </div>
 
-    <!-- Page 2: Preview List -->
-    <div id="page-2" class="page" style="display:none;">
+    <!-- Page 2 -->
+    <div id="page-2" class="page" style="display: none;">
       <h2>सामग्री की सूची</h2>
       <ul id="preview-list"></ul>
-      <!-- Updated Next Button with Icon -->
       <button class="next-btn" onclick="nextPage(3)">
         <i class="fas fa-arrow-right"></i>
       </button>
     </div>
 
-    <!-- Page 3: Pandit Selection and Send -->
-    <div id="page-3" class="page" style="display:none;">
+    <!-- Page 3 -->
+    <div id="page-3" class="page" style="display: none;">
       <h2>पंडित जी का नाम चुनें</h2>
       <select id="pandit-select">
         <option value="Pandit Rajendra Ji">पंडित राजेन्द्र जी</option>
         <option value="Pandit Krishna Ji">पंडित कृष्ण जी</option>
       </select>
-      <input type="text" id="whatsapp-input" placeholder="WhatsApp नंबर">
+      <input type="text" id="whatsapp-input" placeholder="WhatsApp नंबर" />
       <button onclick="sendToWhatsApp()">📤 भेजें WhatsApp पर</button>
     </div>
   </div>
 
-  <!-- Link to external JS file -->
   <script src="app.js"></script>
 </body>
 </html>
